@@ -27,7 +27,8 @@ public class ProductController {
 
     @GetMapping("/products/{prodID}")
     public Product getProductByID(@PathVariable int prodID) {
-        return service.getprProductById(prodID);
+        return service.getProductById(prodID)
+                .orElseThrow(() -> new RuntimeException("Product not found with id " + prodID));
     }
 
     @PostMapping("/products")
