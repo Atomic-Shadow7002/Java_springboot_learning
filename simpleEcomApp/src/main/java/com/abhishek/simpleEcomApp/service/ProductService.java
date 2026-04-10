@@ -2,6 +2,7 @@ package com.abhishek.simpleEcomApp.service;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 import com.abhishek.simpleEcomApp.model.Product;
 import com.abhishek.simpleEcomApp.repo.ProductRepo;
@@ -17,5 +18,9 @@ public class ProductService {
 
     public List<Product> getAllProducts() {
         return repo.findAll();
+    }
+
+    public Optional<Product> getProductById(int id) {
+        return repo.findById(id);
     }
 }
